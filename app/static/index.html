@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FestiKart — AI Festive Sale</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="topbar">
+    <div class="brand" onclick="scrollToTop()">
+      <div class="brand-mark">F</div>
+      <div>
+        <div class="brand-name">FestiKart</div>
+        <div class="brand-sub">AI Commerce Platform</div>
+      </div>
+    </div>
+
+    <div class="search">
+      <span>⌕</span>
+      <input id="searchInput" type="text" placeholder="Search for products, brands and more">
+    </div>
+
+    <button class="login-btn">Login</button>
+    <button class="cart-btn">🛒 Cart <span id="cartCount">0</span></button>
+  </header>
+
+  <nav class="categories">
+    <button data-category="All">All</button>
+    <button data-category="Smartphones">📱 Mobiles</button>
+    <button data-category="Laptops">💻 Laptops</button>
+    <button data-category="Audio">🎧 Audio</button>
+  </nav>
+
+  <section id="saleHero" class="hero normal">
+    <div class="hero-content">
+      <div class="eyebrow">FESTIVE SALE INTELLIGENCE</div>
+      <h1 id="heroTitle">Smart shopping starts here.</h1>
+      <p id="heroText">AI-powered demand forecasting, pricing and inventory decisions.</p>
+      <button id="saleToggle" class="sale-toggle" onclick="toggleSale()">
+        🔥 Activate Festive Sale
+      </button>
+    </div>
+    <div class="hero-art">
+      <div class="burst">AI<br>SALE</div>
+      <div class="hero-card">
+        <span>Expected demand</span>
+        <strong id="heroDemand">—</strong>
+        <small>units / day</small>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section class="section-head">
+      <div>
+        <div class="section-kicker">AI CURATED</div>
+        <h2>Top products</h2>
+      </div>
+      <div id="saleStatus" class="status-pill">NORMAL PRICING</div>
+    </section>
+
+    <div id="productsGrid" class="product-grid"></div>
+
+    <section class="impact">
+      <div class="section-kicker">BUSINESS IMPACT</div>
+      <h2>Before vs AI Festive Sale</h2>
+      <p class="muted">Select a product to see the model-driven price, demand and inventory impact.</p>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <span>Before sale</span>
+          <strong id="impactBefore">₹—</strong>
+          <small>List price</small>
+        </div>
+        <div class="arrow">→</div>
+        <div class="impact-card sale-card">
+          <span>AI sale price</span>
+          <strong id="impactAfter">₹—</strong>
+          <small id="impactDiscount">Activate sale</small>
+        </div>
+        <div class="impact-card">
+          <span>Forecast demand</span>
+          <strong id="impactDemand">—</strong>
+          <small>units / day</small>
+        </div>
+        <div class="impact-card">
+          <span>Expected contribution</span>
+          <strong id="impactProfit">₹—</strong>
+          <small>model estimate</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="section-kicker">DECISION ENGINE</div>
+      <h2>AI Sale Control Center</h2>
+
+      <div class="dashboard-grid">
+        <div class="control-panel">
+          <label>Selected SKU</label>
+          <select id="skuSelect"></select>
+
+          <label>Available inventory</label>
+          <input id="inventoryInput" type="number" min="0" value="500">
+
+          <label>Competitor price</label>
+          <input id="competitorInput" type="number" min="1" value="0">
+
+          <button class="primary" onclick="runAI()">Run AI Decision Engine</button>
+        </div>
+
+        <div class="metrics-panel">
+          <div class="metric">
+            <span>Demand forecast</span>
+            <strong id="mDemand">—</strong>
+          </div>
+          <div class="metric">
+            <span>Recommended price</span>
+            <strong id="mPrice">—</strong>
+          </div>
+          <div class="metric">
+            <span>Discount</span>
+            <strong id="mDiscount">—</strong>
+          </div>
+          <div class="metric">
+            <span>Expected units</span>
+            <strong id="mUnits">—</strong>
+          </div>
+          <div class="metric">
+            <span>Expected contribution</span>
+            <strong id="mProfit">—</strong>
+          </div>
+          <div class="metric">
+            <span>Elasticity</span>
+            <strong id="mElasticity">—</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="explanation">
+        <div class="robot">🤖</div>
+        <div>
+          <h3>Why this price?</h3>
+          <p id="whyPrice">Run the AI Decision Engine to generate a pricing explanation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="recommendations">
+      <div>
+        <div class="section-kicker">PERSONALIZATION</div>
+        <h2>Recommended for you</h2>
+      </div>
+      <div class="recommend-row">
+        <input id="userId" value="U0001" placeholder="User ID">
+        <button class="secondary" onclick="loadRecommendations()">Refresh</button>
+      </div>
+      <div id="recommendationsGrid" class="recommend-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>FestiKart</strong> · Independent portfolio project · AI Demand + Dynamic Pricing + Inventory + Recommendations
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

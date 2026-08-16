@@ -1,0 +1,11 @@
+sku,brand,category,list_price,unit_cost,base_demand,initial_inventory
+IPHONE_15_128,Apple,Smartphones,70000,52000,55,900
+IPHONE_15_256,Apple,Smartphones,80000,60000,35,600
+IPHONE_16_128,Apple,Smartphones,80000,61000,70,1100
+IPHONE_16_256,Apple,Smartphones,90000,69000,45,700
+SAMSUNG_S24,Samsung,Smartphones,75000,57000,50,850
+ONEPLUS_13,OnePlus,Smartphones,70000,54000,60,950
+MACBOOK_AIR_M2,Apple,Laptops,100000,82000,25,500
+DELL_XPS_13,Dell,Laptops,115000,92000,18,350
+SONY_HEADPHONES,Sony,Audio,30000,21000,80,1200
+AIRPODS_PRO,Apple,Audio,25000,17000,95,1400
